@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <h2 class="mb-4">Login</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Error messages -->
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Invalid username or password.
+                    </div>
+                {% endif %}
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label>{{ form.username.label }}</label>
+                    {{ form.username }}
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label>{{ form.password.label }}</label>
+                    {{ form.password }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
