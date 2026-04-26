@@ -44,3 +44,15 @@ class TaskForm(forms.ModelForm):
             raise forms.ValidationError('Due date cannot be in the past.')
 
         return due_date
+    
+class BulkActionForm(forms.Form):
+    ACTION_CHOICES = [
+        ('clear_all', 'Clear All Tasks'),
+        ('mark_all_done', 'Mark All as Done'),
+    ]
+
+    action = forms.ChoiceField(
+        choices=ACTION_CHOICES,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )   
+    
