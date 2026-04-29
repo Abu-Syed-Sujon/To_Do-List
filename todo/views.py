@@ -10,8 +10,11 @@ def task_list(request):
     """ its show all task  """
     tasks = Task.objects.filter(user=request.user).order_by('-created_at')  # pylint: disable=no-member
     form = TaskForm()
-
-    return render(request, 'todo/task_list.html', {'tasks': tasks,'form': form})
+    context = {
+        'tasks': tasks,
+        'form': form
+    }
+    return render(request, 'todo/task_list.html', context)
 
 
 @login_required
