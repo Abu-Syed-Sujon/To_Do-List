@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-81sto8*un5=dd28o-z5x4&119875ww+5t-$utlcl&66==-vm%p"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [False, 'localhost', '127.0.0.1']
 
@@ -118,7 +118,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# The URL people see in the browser
 STATIC_URL = "static/"
+
+# Where you MANUALLY put your CSS/JS files (Source)
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Where Django AUTOMATICALLY puts files for production (Destination)
+#STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
